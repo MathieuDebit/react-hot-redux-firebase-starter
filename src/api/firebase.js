@@ -17,6 +17,10 @@ class FirebaseApi {
     });
   }
 
+  static currentUser() {
+    return firebase.auth().currentUser;
+  }
+
   static createUserWithEmailAndPassword(user){
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
   }
@@ -63,12 +67,27 @@ class FirebaseApi {
   }
 
   static databaseSet(path, value) {
-
     return firebase
       .database()
       .ref(path)
       .set(value);
+  }
 
+  static fetchDatabase(path, limit) {
+    return firebase
+      .database()
+      .ref(path)
+      .orderByKey()
+      .limitToLast(limit)
+      .once('value');
+  }
+
+  static listenDatabase(path, callback) {
+    return firebase
+      .database()
+      .ref(path)
+      .limitToLast(1)
+      .on('child_added', callback);
   }
 }
 

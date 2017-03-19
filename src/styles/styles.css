@@ -56,3 +56,51 @@ nav {
   font-size: 6rem;
   line-height: 8rem;
 }
+
+/* Chat module */
+.chat-module-container {
+  position: relative;
+}
+
+.chat-module-form-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.chat-module-form-input {
+  width: calc(100% - 50px);
+  height: 40px;
+  padding: 5px 10px;
+}
+
+.chat-module-form-button {
+  width: 50px;
+  height: 40px;
+}
+
+.chat-module-messages-container {
+  margin-bottom: 50px;
+}
+
+.chat-module-message-container {
+  max-width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #F4F4F4;
+  border-radius: 10px;
+}
+
+.chat-module-message-container-current-user {
+  max-width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+  color: #F4F4F4;
+  background-color: #2772DB;
+  border-radius: 10px;
+}
+
+.chat-module-message-author {
+  font-style: italic;
+}
