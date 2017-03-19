@@ -1,8 +1,8 @@
 // Firebase
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCNsG4Y4pkaVxqM809bpQeZ3wsFgVlCPcg",
-  authDomain: "react-hot-redux-firebase-start.firebaseapp.com",
-  databaseURL: "https://react-hot-redux-firebase-start.firebaseio.com",
-  storageBucket: "react-hot-redux-firebase-start.appspot.com"
+  apiKey: "AIzaSyChT1RSpGB-fU1JGLJZZf7mN5b7lk3fEgo",
+  authDomain: "chatx-4815c.firebaseapp.com",
+  databaseURL: "https://chatx-4815c.firebaseio.com",
+  storageBucket: "chatx-4815c.appspot.com"
 };
