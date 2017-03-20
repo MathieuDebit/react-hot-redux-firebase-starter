@@ -11,6 +11,7 @@ export default {
   user: {
     isAdmin: undefined
   },
+  messages: {},
   auth: {
     isLogged: false,
     currentUserUID: null,
