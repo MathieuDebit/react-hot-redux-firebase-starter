@@ -6,6 +6,7 @@ import {push} from 'react-router-redux';
 
 import {ajaxCallError, beginAjaxCall} from './ajaxStatusActions';
 import {userLoadedSuccess, userCreated, userIsAdminSuccess} from './userActions';
+import {fetchMessages} from './messageActions';
 
 export function authInitializedDone() {
   return {
@@ -43,6 +44,7 @@ export function authLoggedIn(userUID) {
       .then(
         user => {
           dispatch(userLoadedSuccess(user.val()));
+          dispatch(fetchMessages());
           dispatch(push('/'));
         })
       .catch(

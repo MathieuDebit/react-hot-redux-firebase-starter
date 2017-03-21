@@ -8,11 +8,6 @@ import ChatMessages from './ChatMessages';
 import ChatForm from './ChatForm';
 
 export class ChatPage extends React.Component {
-  componentDidMount() {
-    this.props.actions.fetchMessages();
-    this.props.actions.listenMessagesUpdates();
-  }
-
   render() {
     return (
       <div className="chat-module-container">

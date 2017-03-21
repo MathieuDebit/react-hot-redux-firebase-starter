@@ -13,9 +13,6 @@ export default class ChatForm extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  componentDidMount() {
-  }
-
   handleMessageUpdate(event) {
     this.setState({ content: event.target.value });
   }

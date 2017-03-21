@@ -69,21 +69,13 @@ class FirebaseApi {
       .set(value);
   }
 
-  static fetchDatabase(path, limit) {
+  static fetchDatabase(path, limit, callback) {
     return firebase
       .database()
       .ref(path)
       .orderByKey()
       .limitToLast(limit)
-      .once('value');
-  }
-
-  static listenDatabase(path, callback) {
-    return firebase
-      .database()
-      .ref(path)
-      .limitToLast(1)
-      .on('child_added', callback);
+      .on('value', callback);
   }
 }
 

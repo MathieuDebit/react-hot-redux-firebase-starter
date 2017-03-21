@@ -11,19 +11,8 @@ export function sendMessage({ message }) {
 
 export function fetchMessages() {
   return (dispatch) => {
-    return firebaseApi.fetchDatabase('messages', 10)
-      .then((items) => dispatch(messagesFetchSuccess(items.val())) );
-  };
-}
-
-export function listenMessagesUpdates() {
-  return (dispatch) => {
-    return firebaseApi.listenDatabase('messages', (snapshot) => {
-      const message = {
-        [snapshot.getKey()]: snapshot.val()
-      };
-
-      dispatch(messagesFetchSuccess(message));
+    return firebaseApi.fetchDatabase('messages', 10, (items) => {
+      dispatch(messagesFetchSuccess( items.val() ));
     });
   };
 }
