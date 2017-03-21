@@ -12,6 +12,7 @@ export default function configureStore(initialState) {
     compose(
       applyMiddleware(thunk, reduxImmutableStateInvariant(), routerMiddleware(browserHistory)),
       window.devToolsExtension ? window.devToolsExtension() : f => f
-    )
+    ),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 }

@@ -63,12 +63,19 @@ class FirebaseApi {
   }
 
   static databaseSet(path, value) {
-
     return firebase
       .database()
       .ref(path)
       .set(value);
+  }
 
+  static fetchDatabase(path, limit, callback) {
+    return firebase
+      .database()
+      .ref(path)
+      .orderByKey()
+      .limitToLast(limit)
+      .on('value', callback);
   }
 }
 
