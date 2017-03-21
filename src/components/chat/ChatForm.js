@@ -39,6 +39,7 @@ export default class ChatForm extends React.Component {
         });
     }
   }
+
   render() {
     return (
       <div className="chat-module-form-container">
