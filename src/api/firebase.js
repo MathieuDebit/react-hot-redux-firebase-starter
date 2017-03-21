@@ -17,10 +17,6 @@ class FirebaseApi {
     });
   }
 
-  static currentUser() {
-    return firebase.auth().currentUser;
-  }
-
   static createUserWithEmailAndPassword(user){
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
   }

@@ -6,27 +6,33 @@ export default class ChatForm extends React.Component {
     super(props);
 
     this.state = {
-      message: {
-        text: '',
-      },
+      content: '',
     };
 
     this.handleMessageUpdate = this.handleMessageUpdate.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  componentDidMount() {
+  }
+
   handleMessageUpdate(event) {
-    this.setState({ message: {text: event.target.value} });
+    this.setState({ content: event.target.value });
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
 
-    if (this.state.message.text != '') {
-      this.props.actions.sendMessage(this.state.message)
+    const message = {
+      content: this.state.content,
+      author: this.props.user.email,
+    }
+
+    if (this.state.content != '') {
+      this.props.actions.sendMessage({ message })
         .then(user => {
           toastr.success('Message sent');
-          this.setState({ message: {text: ''} });
+          this.setState({ content: '' });
         })
         .catch(error => {
           toastr.error(error.message);
@@ -38,7 +44,7 @@ export default class ChatForm extends React.Component {
       <div className="chat-module-form-container">
         <form onSubmit={this.handleFormSubmit}>
           <input className="chat-module-form-input" type="text" placeholder="type your message"
-                 value={this.state.message.text} onChange={this.handleMessageUpdate}
+                 value={this.state.content} onChange={this.handleMessageUpdate}
           />
 
         <button className="chat-module-form-button" type="submit">Send</button>

@@ -18,9 +18,9 @@ export class ChatPage extends React.Component {
       <div className="chat-module-container">
         <h1 className="chat-module-title">ChatX</h1>
 
-        <ChatMessages messages={this.props.messages} />
+        <ChatMessages messages={this.props.messages} user={this.props.user} />
 
-        <ChatForm actions={this.props.actions} />
+        <ChatForm actions={this.props.actions} user={this.props.user} />
       </div>
     );
   }
@@ -28,11 +28,15 @@ export class ChatPage extends React.Component {
 
 ChatPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  messages: PropTypes.object.isRequired
+  messages: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
-  return { messages: state.messages };
+  return {
+    messages: state.messages,
+    user: state.user
+  };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -7,7 +7,11 @@ const ChatMessages = (props) => {
       {
         Object.keys(props.messages).map((key) => {
           return (
-            <MessageItem key={key} message={props.messages[key]} />
+            <MessageItem
+              key={key}
+              message={props.messages[key]}
+              currentUserEmail={props.user.email}
+            />
           );
         })
       }

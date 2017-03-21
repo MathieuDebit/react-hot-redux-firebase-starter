@@ -1,9 +1,7 @@
 import firebaseApi from '../api/firebase';
 import * as types from './actionTypes';
 
-export function sendMessage(message) {
-  message.author = firebaseApi.currentUser().email;
-
+export function sendMessage({ message }) {
   return (dispatch) => {
     return firebaseApi.databasePush('messages', message)
       .then(() => dispatch(listenMessagesUpdates()) );
